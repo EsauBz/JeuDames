@@ -38,7 +38,63 @@ public class Position {
         this.y = y;
     }
     
-    public void deplacerPion(int dir ){
+    /**
+     *
+     * @param dir Direction du mouvement 
+     */
+    public void deplacerPion(int dir){
         
+        switch(dir){
+                /* sup droit*/
+            case 1:
+                x = x + 1;
+                y = y +1;
+                break;
+                /* sup gauche*/
+            case 2:
+                x = x - 1;
+                y = y +1;
+                break;
+                /* inf droit*/
+            case 3:
+                x = x + 1;
+                y = y - 1;
+                break;
+                /* inf gauche*/
+            case 4:
+                x = x - 1;
+                y = y - 1;
+                break;
+        }
+    }
+    /**
+     * 
+     * @param dir 
+     * @param nombre 
+     */
+    public void deplacerDame(int dir, int nombre){
+        
+       switch(dir){
+                /* sup droit*/
+            case 1:
+                x = x + nombre;
+                y = y + nombre;
+                break;
+                /* sup gauche*/
+            case 2:
+                x = x - nombre;
+                y = y + nombre;
+                break;
+                /* inf droit*/
+            case 3:
+                x = x + nombre;
+                y = y - nombre;
+                break;
+                /* inf gauche*/
+            case 4:
+                x = x - nombre;
+                y = y - nombre;
+                break;
+        }
     }
 }
