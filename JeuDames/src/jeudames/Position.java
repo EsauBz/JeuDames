@@ -13,7 +13,7 @@ public class Position {
     private int y;
     
     /**
-     * 
+     
      * @param x
      * @param y 
      */
@@ -48,12 +48,12 @@ public class Position {
                 /* sup droit*/
             case 1:
                 x = x + 1;
-                y = y +1;
+                y = y + 1;
                 break;
                 /* sup gauche*/
             case 2:
                 x = x - 1;
-                y = y +1;
+                y = y + 1;
                 break;
                 /* inf droit*/
             case 3:

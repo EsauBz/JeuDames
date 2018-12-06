@@ -11,4 +11,28 @@ package jeudames;
  */
 public class Piece {
     private Position pos;
+    private boolean isDame;
+    
+    public Piece(Position p){
+        pos = p;
+        isDame = false;
+    }
+
+    public Position getPos() {
+        return pos;
+    }
+
+    public boolean isIsDame() {
+        return isDame;
+    }
+
+    public void setPos(Position pos) {
+        this.pos = pos;
+    }
+
+    public void setIsDame(boolean isDame) {
+        this.isDame = isDame;
+    }
+    
+    
 }
