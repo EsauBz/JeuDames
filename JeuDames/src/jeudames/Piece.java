@@ -10,5 +10,5 @@ package jeudames;
  * @author EsauBZ
  */
 public class Piece {
-    
+    private Position pos;
 }
