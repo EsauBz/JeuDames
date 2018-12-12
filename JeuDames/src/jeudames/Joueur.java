@@ -13,21 +13,23 @@ import java.util.ArrayList;
  */
 public class Joueur {
     private String nom;
-    private ArrayList<String> pieces;
+    private ArrayList<Piece> pieces;
     
     public Joueur(String nom){
         this.nom = nom;
+        pieces = new ArrayList<>();
     }
 
     public String getNom() {
         return nom;
     }
 
-    public ArrayList<String> getPieces() {
+    public ArrayList<Piece> getPieces() {
         return pieces;
     }
 
     public void setNom(String nom) {
         this.nom = nom;
     }
+    
 }
