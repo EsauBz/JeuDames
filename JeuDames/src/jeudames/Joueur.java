@@ -12,10 +12,11 @@ import java.util.ArrayList;
  * @author guiishida
  */
 public class Joueur {
+
     private String nom;
     private ArrayList<Piece> pieces;
-    
-    public Joueur(String nom){
+
+    public Joueur(String nom) {
         this.nom = nom;
         pieces = new ArrayList<>();
     }
@@ -31,5 +32,5 @@ public class Joueur {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
+
 }

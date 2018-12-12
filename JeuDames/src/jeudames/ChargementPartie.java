@@ -41,6 +41,8 @@ public class ChargementPartie {
     
     public Tableau chargerPartie(){ 
         Tableau jeu = null;
+        Joueur j1 = null;
+        Joueur j2 = null;
         try {
             String ligne;
             fichier = new BufferedReader(new FileReader(nomFichier));
@@ -55,45 +57,61 @@ public class ChargementPartie {
                 // If pour récuperer l'info du premier joueur
                 if (tokenizer.hasMoreTokens()){
                     String nom = tokenizer.nextToken();
-                    
-                    try {
-                        Joueur j1 = new Joueur(nom);
-                    } catch (NumberFormatException e) {
-                        System.err.println(e.getMessage());  
-                    }  
+                    j1 = new Joueur(nom);
                 }
                 ligne = fichier.readLine();
                 StringTokenizer tokenizer2 = new StringTokenizer(ligne, delimiteurs);
-                // If pour récuperer les pièces qui le joueur possede
+                // while pour récuperer les pièces qui le joueur j1 possede
                 while (tokenizer2.hasMoreTokens()){
- 
                     try {
                         int coordX = Integer.parseInt(tokenizer2.nextToken());
                         int coordY = Integer.parseInt(tokenizer2.nextToken());
                         String isDame = tokenizer2.nextToken();
-                        if (isDame == "false"){
-                            
+                        if ("false".equals(isDame)){
+                            j1.getPieces().add(new Piece(new Position(coordX, coordY), false));
                         }
-                        
+                        else {
+                            j1.getPieces().add(new Piece(new Position(coordX, coordY), true));
+                        }
                     } catch (NumberFormatException e) {
                         System.err.println(e.getMessage());  
                     }  
                 }
-                //Initialisation du monde avec un constructeur de deux parametres
-                monde = new World(coordX, coordY);
-                ligne = fichier.readLine();
-                
-                while (ligne != null){
-                    //appel au methode creerElementJeu pour creer l'element de la ligne lue 
-                    creerElementJeu(ligne, monde);                     
-                    ligne = fichier.readLine();
+                ligne = fichier.readLine(); 
+                StringTokenizer tokenizer3 = new StringTokenizer(ligne, delimiteurs);
+                                
+                // If pour récuperer l'info du premier joueur
+                if (tokenizer3.hasMoreTokens()){
+                    String nom2 = tokenizer3.nextToken();
+                    j2 = new Joueur(nom2);
                 }
+                ligne = fichier.readLine();
+                StringTokenizer tokenizer4 = new StringTokenizer(ligne, delimiteurs);
+                // while pour récuperer les pièces qui le joueur j2 possede
+                while (tokenizer4.hasMoreTokens()){
+                    try {
+                        int coordX = Integer.parseInt(tokenizer4.nextToken());
+                        int coordY = Integer.parseInt(tokenizer4.nextToken());
+                        String isDame = tokenizer4.nextToken();
+                        if ("false".equals(isDame)){
+                            j2.getPieces().add(new Piece(new Position(coordX, coordY), false));
+                        }
+                        else {
+                            j2.getPieces().add(new Piece(new Position(coordX, coordY), true));
+                        }
+                    } catch (NumberFormatException e) {
+                        System.err.println(e.getMessage());  
+                    }  
+                }
+                
+                //Initialisation d'un jeu --> Il faut passer les deux joueurs comme paramètre
+                jeu = new Tableau();
             }
             fichier.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
               
-        return monde;
+        return jeu;
     }
 }

@@ -34,6 +34,14 @@ public class Tableau {
         this.tailleY = 8;
         this.creationJoueurs();
     }
+
+    public Joueur getJ1() {
+        return j1;
+    }
+
+    public Joueur getJ2() {
+        return j2;
+    }
     
     public void TourDeJeu(){
         

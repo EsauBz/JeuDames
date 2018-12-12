@@ -17,6 +17,11 @@ public class Piece {
         pos = p;
         isDame = false;
     }
+    
+    public Piece(Position p, boolean dame){
+        pos = p;
+        isDame = dame;
+    }
 
     public Position getPos() {
         return pos;
