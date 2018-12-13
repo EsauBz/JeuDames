@@ -16,6 +16,16 @@ import java.util.StringTokenizer;
  */
 public class ChargementPartie {
     
+/**
+ * Format du fichier :
+ * 
+ * Joueur Nom_Joueur
+ * CoordX CoordY isDame .....
+ * Joueur Nom_Joueur
+ * CoordX CoordY isDame ...
+ */
+
+
 //attribut nomFichier contenant le nom du fichier à charger
     private final String nomFichier;
     
